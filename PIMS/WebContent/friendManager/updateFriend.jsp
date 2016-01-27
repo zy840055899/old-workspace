@@ -1,0 +1,41 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>个人信息管理系统--修改通讯录</title>
+</head>
+<body>
+
+<center>
+
+<table>
+
+<tr>
+<td><a href="http://localhost:8080/PIMS/friendManager/addFriend.jsp">增加联系人</a></td>
+<td><a href="http://localhost:8080/PIMS/friendManager/lookFriend.jsp">查看通讯录</a></td>
+<td>修改联系人</td>
+<td><a href="http://localhost:8080/PIMS/friendManager/deleteFriend.jsp">删除联系人</a></td>
+<td><a href="http://localhost:8080/PIMS/main/main.jsp">返回</a></td>
+</tr>
+
+</table><hr>
+
+<form action="http://localhost:8080/PIMS/UpdateFriendServlet">
+
+
+<h3>请输入要修改人的姓名</h3>
+姓名：<input type="text" name="friendName">
+<br>
+
+<input type="submit" value="提交">
+<input type="reset" value="重置">
+
+</form>
+
+</center>
+
+
+</body>
+</html>

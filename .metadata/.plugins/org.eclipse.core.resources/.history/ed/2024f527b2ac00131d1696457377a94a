@@ -1,0 +1,99 @@
+<%@page import="java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<center>
+
+<table>
+
+<tr>
+<td><a href="http://localhost:8080/PIMS/friendManager/addFriend.jsp">增加联系人</a></td>
+<td><a href="http://localhost:8080/PIMS/friendManager/lookFriend.jsp">查看通讯录</a></td>
+<td>修改联系人</td>
+<td><a href="http://localhost:8080/PIMS/friendManager/deleteFriend.jsp">删除联系人</a></td>
+<td><a href="http://localhost:8080/PIMS/main/main.jsp">返回</a></td>
+</tr>
+
+</table><hr>
+
+<form action="http://localhost:8080/PIMS/UpdateFriendMessageServlet">
+
+<table border="1">
+
+<%
+ArrayList friendslist2 = session.getAttribute("friendslist2");
+
+
+
+
+
+
+
+
+
+
+
+
+
+%>
+
+
+
+
+
+
+
+
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</center>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

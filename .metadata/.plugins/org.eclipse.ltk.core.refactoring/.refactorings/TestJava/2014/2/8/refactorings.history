@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;Test.java&apos; to &apos;ConnMySql.java&apos;&#x0D;&#x0A;- Original project: &apos;TestJava&apos;&#x0D;&#x0A;- Original element: &apos;Test.java&apos;&#x0D;&#x0A;- Renamed element: &apos;ConnMySql.java&apos;" description="Rename compilation unit &apos;Test.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;{Test.java" name="ConnMySql.java" references="false" stamp="1393043060834" version="1.0"/>
+</session>

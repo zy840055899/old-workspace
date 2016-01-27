@@ -1,0 +1,129 @@
+package lookMessage;
+
+import java.io.IOException;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.swing.JOptionPane;
+
+import loginRegister.LoginBean;
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.Statement;
+
+@WebServlet("/UpdatePasswordServlet")
+public class UpdatePasswordServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	
+	public void wrong1()
+	{
+		String msg = "不允许有空!";
+		int type = JOptionPane.YES_NO_CANCEL_OPTION;
+		String title = "信息提示";
+		JOptionPane.showMessageDialog(null, msg, title, type);
+	}
+	public void wrong2()
+	{
+		String msg = "密码不一致!";
+		int type = JOptionPane.YES_NO_CANCEL_OPTION;
+		String title = "信息提示";
+		JOptionPane.showMessageDialog(null, msg, title, type);
+	}
+	public void right()
+	{
+		String msg = "修改成功";
+		int type = JOptionPane.YES_NO_CANCEL_OPTION;
+		String title = "信息提示";
+		JOptionPane.showMessageDialog(null, msg, title, type);
+	}
+      
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String password1 = new String(request.getParameter("password1").getBytes("ISO-8859-1"),"UTF-8");
+		String password2 = new String(request.getParameter("password2").getBytes("ISO-8859-1"),"UTF-8");
+		
+		if(password1.length() == 0 || password2.length() == 0)
+		{
+			wrong1();
+			response.sendRedirect("http://localhost:8080/PIMS/lookMessage/updatePassword.jsp");
+		}
+		else if (!(password1.equals(password2))) 
+		{
+			wrong2();
+			response.sendRedirect("http://localhost:8080/PIMS/lookMessage/updatePassword.jsp");
+		}
+		else 
+		{
+			try
+			{
+				//使用数据库四个重要的步骤
+				Connection con = null;
+				Statement stmt = null;
+				ResultSet rs = null;
+				Class.forName("com.mysql.jdbc.Driver");
+				
+				String url = "jdbc:mysql://localhost:3306/person";
+				con = (Connection) DriverManager.getConnection(url, "root", "root");
+				stmt = (Statement) con.createStatement();
+				
+				String userName = "";
+				HttpSession session = request.getSession();
+				ArrayList login = (ArrayList) session.getAttribute("login");
+				
+				if(login == null || login.size()== 0)
+				{
+					response.sendRedirect("http://localhost:8080/PIMS/login.jsp");
+				}
+				else
+				{
+					for(int i = login.size() - 1; i >= 0; i--)
+					{
+						LoginBean nn = (LoginBean) login.get(i);
+						userName = nn.getUserName();
+					}
+				}
+				
+				String sql1 = "Update user set password='"+password1+"' where userName='"+userName+"'";
+				stmt.executeUpdate(sql1);
+				String sql2 = "select * from user where userName='"+userName+"'";
+				rs = stmt.executeQuery(sql2);
+				
+				LoginBean nn = new LoginBean();
+				nn.setPassword(password1);
+				ArrayList wordlist = null;
+				wordlist = new ArrayList();
+				wordlist.add(nn);
+				
+				session.setAttribute("login", login);
+				
+				rs.close();
+				stmt.close();
+				con.close();
+				
+				right();
+				
+				response.sendRedirect("http://localhost:8080/PIMS/lookMessage/lookMessage.jsp");
+			} 
+			catch (Exception e)
+			{
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+			
+		}
+		
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

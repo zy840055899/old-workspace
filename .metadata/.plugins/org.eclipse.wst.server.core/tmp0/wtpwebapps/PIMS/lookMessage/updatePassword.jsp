@@ -1,0 +1,65 @@
+<%@page import="loginRegister.LoginBean"%>
+<%@page import="java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<center>
+
+<table>
+
+<tr>
+<td><a href="http://localhost:8080/PIMS/lookMessage/lookMessage.jsp">查看个人信息</a></td>
+<td><a href="http://localhost:8080/PIMS/lookMessage/updateMessage.jsp">修改个人信息</a></td>
+<td>修改密码</td>
+<td><a href="http://localhost:8080/PIMS/main/main.jsp">返回</a></td>
+</tr>
+
+</table><hr>
+
+<form action="http://localhost:8080/PIMS/UpdatePasswordServlet" method="post">
+
+<table border="1">
+<%
+ArrayList login = (ArrayList)session.getAttribute("login");
+if(login == null || login.size() == 0)
+{
+	response.sendRedirect("http://localhost:8080/PIMS/main/main.jsp");
+}
+else
+{
+	for(int i = login.size() - 1; i >= 0; i--)
+	{
+		LoginBean nn = (LoginBean)login.get(i);
+%>
+<tr>
+<td>用户密码</td>
+<td><input type="password" name="password1" value="<%=nn.getPassword() %>"></td>
+</tr>
+
+<tr>
+<td>重复密码</td>
+<td><input type="password" name="password2" value="<%=nn.getPassword() %>"></td>
+</tr>
+		
+<%		
+	}
+}
+%>
+</table>
+
+<input type="submit" value="确认">
+<input type="reset" value="重置">
+
+</form>
+
+</center>
+
+</body>
+</html>

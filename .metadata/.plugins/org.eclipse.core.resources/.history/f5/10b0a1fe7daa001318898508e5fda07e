@@ -1,0 +1,103 @@
+package friendManager;
+
+import java.io.IOException;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import loginRegister.LoginBean;
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.Statement;
+
+@WebServlet("/LookFriendServlet")
+public class LookFriendServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
+		try
+		{
+			//使用数据库四个重要的步骤
+			Connection con = null;
+			Statement stmt = null;
+			ResultSet rs = null;
+			Class.forName("com.mysql.jdbc.Driver");
+			
+			String url = "jdbc:mysql://localhost:3306/person";
+			con = (Connection) DriverManager.getConnection(url, "root", "root");
+			stmt = (Statement) con.createStatement();
+			
+			String userName = "";
+			HttpSession session = request.getSession();
+			ArrayList login = (ArrayList) session.getAttribute("login");
+			
+			if(login == null || login.size()== 0)
+			{
+				response.sendRedirect("http://localhost:8080/PIMS/login.jsp");
+			}
+			else
+			{
+				for(int i = login.size() - 1; i >= 0; i--)
+				{
+					LoginBean nn = (LoginBean) login.get(i);
+					userName = nn.getUserName();
+				}
+			}
+			
+			userName = session.getAttribute("userName");
+			
+			String sql1 = "select * from friends where userName = '"+userName+"'";
+			rs = stmt.executeQuery(sql1);
+			ArrayList friendslist = null;
+			
+			if((ArrayList)session.getAttribute("friendslist") == null)
+			{
+				friendslist = new ArrayList();
+				while(rs.next())
+				{
+					LookFriendBean ff = new LookFriendBean();
+					
+					ff.setName(rs.getString("name"));
+					ff.setPhone(rs.getString("phone"));
+					ff.setEmail(rs.getString("email"));
+					ff.setWorkplace(rs.getString("workPlace"));
+					ff.setPlace(rs.getString("place"));
+					ff.setQQ(rs.getString("QQ"));
+					
+					friendslist.add(ff);
+					
+					session.setAttribute("friendslist", friendslist);
+					
+				}
+			}
+			
+			rs.close();
+			stmt.close();
+			con.close();
+			response.sendRedirect("http://localhost:8080/PIMS/friendManager/lookFriend.jsp");
+				
+		} 
+		catch (Exception e)
+		{
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

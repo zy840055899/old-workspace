@@ -1,0 +1,71 @@
+package friendManager;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
+
+@WebServlet("/AddFriendServlet")
+public class AddFriendServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	
+	public void wrong1()
+	{
+		String msg = "不允许有空";
+		int type = JOptionPane.YES_NO_CANCEL_OPTION;
+		String title = "信息提示";
+		JOptionPane.showMessageDialog(null, msg, title, type);
+	}
+	public void wrong2()
+	{
+		String msg = "用户名已存在，添加失败";
+		int type = JOptionPane.YES_NO_CANCEL_OPTION;
+		String title = "信息提示";
+		JOptionPane.showMessageDialog(null, msg, title, type);
+	}
+	
+	public void right()
+	{
+		String msg = "添加成功";
+		int type = JOptionPane.YES_NO_CANCEL_OPTION;
+		String title = "信息提示";
+		JOptionPane.showMessageDialog(null, msg, title, type);
+	}
+       
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
+		String name = new String(request.getParameter("name").getBytes("ISO-8859-1"),"UTF-8");
+		String phone = new String(request.getParameter("phone").getBytes("ISO-8859-1"),"UTF-8");
+		String email = new String(request.getParameter("email").getBytes("ISO-8859-1"),"UTF-8");
+		String workPlace = new String(request.getParameter("workPlace").getBytes("ISO-8859-1"),"UTF-8");
+		String place = new String(request.getParameter("place").getBytes("ISO-8859-1"),"UTF-8");
+		String QQ = new String(request.getParameter("QQ").getBytes("ISO-8859-1"),"UTF-8");
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

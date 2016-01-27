@@ -1,0 +1,19 @@
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+
+
+public class Test
+{
+
+	public static void main(String[] args)
+	{
+	
+		
+		char i =  (char) (Math.random() * 10);
+		
+		System.out.println(i);
+		
+	}
+
+}

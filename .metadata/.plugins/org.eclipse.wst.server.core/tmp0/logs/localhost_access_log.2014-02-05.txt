@@ -1,0 +1,14 @@
+127.0.0.1 - - [05/Feb/2014:22:22:01 +0800] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [05/Feb/2014:22:22:04 +0800] "GET /touPiao/test1.jsp HTTP/1.1" 200 2837
+0:0:0:0:0:0:0:1 - - [05/Feb/2014:22:22:05 +0800] "GET /favicon.ico HTTP/1.1" 404 973
+0:0:0:0:0:0:0:1 - - [05/Feb/2014:22:22:06 +0800] "GET /touPiao/Process?username=&password=&address=%E4%B8%8A%E6%B5%B7&comment= HTTP/1.1" 500 1413
+0:0:0:0:0:0:0:1 - - [05/Feb/2014:22:22:15 +0800] "GET /touPiao/Process?username=1231&password=123&address=%E4%B8%8A%E6%B5%B7&comment= HTTP/1.1" 500 1413
+0:0:0:0:0:0:0:1 - - [05/Feb/2014:22:22:19 +0800] "GET /touPiao/Process?username=1231&password=&gender=%E7%94%B7&interest=%E8%B6%B3%E7%90%83&address=%E4%B8%8A%E6%B5%B7&comment=123 HTTP/1.1" 200 294
+0:0:0:0:0:0:0:1 - - [05/Feb/2014:22:22:22 +0800] "GET /touPiao/Process?username=1231&password=123&gender=%E7%94%B7&interest=%E8%B6%B3%E7%90%83&address=%E4%B8%8A%E6%B5%B7&comment=123 HTTP/1.1" 200 300
+0:0:0:0:0:0:0:1 - - [05/Feb/2014:22:22:28 +0800] "GET /touPiao/Process?username=1231&password=123312&gender=%E7%94%B7&interest=%E8%B6%B3%E7%90%83&address=%E4%B8%8A%E6%B5%B7&comment=123 HTTP/1.1" 200 366
+0:0:0:0:0:0:0:1 - - [05/Feb/2014:22:25:21 +0800] "GET /touPiao/test1.jsp HTTP/1.1" 200 2837
+0:0:0:0:0:0:0:1 - - [05/Feb/2014:22:25:22 +0800] "GET /touPiao/Process?username=&password=&address=%E4%B8%8A%E6%B5%B7&comment= HTTP/1.1" 500 1413
+0:0:0:0:0:0:0:1 - - [05/Feb/2014:22:25:29 +0800] "GET /touPiao/Process?username=11111&password=&address=%E4%B8%8A%E6%B5%B7&comment= HTTP/1.1" 500 1413
+0:0:0:0:0:0:0:1 - - [05/Feb/2014:22:25:38 +0800] "GET /touPiao/Process?username=&password=&interest=%E8%B6%B3%E7%90%83&interest=%E7%AF%AE%E7%90%83&address=%E4%B8%8A%E6%B5%B7&comment= HTTP/1.1" 500 1413
+0:0:0:0:0:0:0:1 - - [05/Feb/2014:22:25:42 +0800] "GET /touPiao/Process?username=&password=1231&address=%E4%B8%8A%E6%B5%B7&comment= HTTP/1.1" 500 1413
+0:0:0:0:0:0:0:1 - - [05/Feb/2014:22:25:49 +0800] "GET /touPiao/Process?username=&password=132&gender=%E7%94%B7&interest=%E8%B6%B3%E7%90%83&address=%E4%B8%8A%E6%B5%B7&comment=1231 HTTP/1.1" 200 333

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<input type="button" value="click" id="button1">
+	
+	<script type="text/javascript">
+			
+		 var v = document.getElementById("button1");
+		 v.onclick = clickHandler;
+		
+		 function clickHandler(event)
+		 {
+			 
+			 
+			 alert(event.type);
+		 }
+	
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+127.0.0.1 - - [07/Feb/2014:14:35:16 +0800] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [07/Feb/2014:14:35:18 +0800] "GET /touPiao/test1.jsp HTTP/1.1" 200 2837
+0:0:0:0:0:0:0:1 - - [07/Feb/2014:14:35:21 +0800] "GET /touPiao/Process?username=&password=&address=%E4%B8%8A%E6%B5%B7&comment= HTTP/1.1" 500 1413
+0:0:0:0:0:0:0:1 - - [07/Feb/2014:14:35:28 +0800] "GET /touPiao/Process?username=1213&password=1231&gender=%E7%94%B7&interest=%E8%B6%B3%E7%90%83&address=%E4%B8%8A%E6%B5%B7&comment=123 HTTP/1.1" 200 364
+0:0:0:0:0:0:0:1 - - [07/Feb/2014:14:35:32 +0800] "GET /touPiao/Process?username=1213&password=1&gender=%E7%94%B7&interest=%E8%B6%B3%E7%90%83&address=%E4%B8%8A%E6%B5%B7&comment=123 HTTP/1.1" 200 300
+0:0:0:0:0:0:0:1 - - [07/Feb/2014:14:35:40 +0800] "GET /touPiao/Process?username=1&password=12&gender=%E7%94%B7&interest=%E8%B6%B3%E7%90%83&address=%E4%B8%8A%E6%B5%B7&comment=123 HTTP/1.1" 200 339

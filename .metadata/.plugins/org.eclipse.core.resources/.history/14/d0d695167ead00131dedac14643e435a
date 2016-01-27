@@ -1,0 +1,20 @@
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+
+
+public class Test
+{
+
+	public static void main(String[] args)
+	{
+	
+		System.out.println("haha");
+		
+		double i = 5.123456212313123123;
+		
+		System.out.println(i);
+		
+	}
+
+}
